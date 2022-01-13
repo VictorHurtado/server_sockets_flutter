@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band Names Votes</title>
+</head>
+<body>
+    <h1>Acceso Denegado!</h1>
+    <script src="http://localhost:3001/socket.io/socket.io.js"> </script>
+    <script > 
+        var socket= io();
+        socket.on("connect", ()=>console.log("conectado con el servidor"));
+        socket.on("disconnect", ()=>console.log("desconectado del servidor"));
+        socket.emit("message",{name:"Victor Hurtado"});
+        socket.on("message",(message)=>console.log(message["name"]));
+    </script>
+</body>
+</html>
