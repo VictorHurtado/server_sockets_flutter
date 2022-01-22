@@ -12,9 +12,17 @@
     <script > 
         var socket= io();
         socket.on("connect", ()=>console.log("conectado con el servidor"));
-        socket.on("disconnect", ()=>console.log("desconectado del servidor"));
+        socket.on("disconnect", ()=>{
+            console.log("desconectado del servidor")
+            socket.emit("disconnect",{name:"Victor Hurtado"});
+         }
+        );
         socket.emit("message",{name:"Victor Hurtado"});
         socket.on("message",(message)=>console.log(message["name"]));
+        socket.on("active-bands",(data)=> {
+            console.clear();
+            console.table(data);
+        });
     </script>
 </body>
 </html>
